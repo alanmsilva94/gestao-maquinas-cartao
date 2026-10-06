@@ -1,0 +1,11 @@
+# Dados reais nunca vao para o repositorio
+bd/
+backup*/
+*.zip
+*.xlsx
+*.xls
+!dados_exemplo/**
+__pycache__/
+Thumbs.db
+.DS_Store
+.env
