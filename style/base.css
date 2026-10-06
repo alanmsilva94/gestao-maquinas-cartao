@@ -1,0 +1,87 @@
+/* ==========================================================================
+   base.css – variáveis (cores do mockup), reset e tipografia.
+   Sem fontes externas: usa Inter se instalada, senão a fonte do sistema.
+   ========================================================================== */
+:root {
+  /* Paleta (tokens do mockup) */
+  --primary: #00236f;
+  --primary-container: #1e3a8a;
+  --on-primary: #ffffff;
+  --on-primary-container: #90a8ff;
+  --secondary: #0051d5;
+  --secondary-container: #316bf3;
+  --secondary-fixed: #dbe1ff;
+  --primary-fixed: #dce1ff;
+  --tertiary-container: #004942;
+  --tertiary-fixed: #89f5e7;
+  --tertiary-fixed-dim: #6bd8cb;
+
+  --surface: #f8f9ff;
+  --surface-lowest: #ffffff;
+  --surface-low: #eff4ff;
+  --surface-container: #e5eeff;
+  --surface-high: #dce9ff;
+  --surface-highest: #d3e4fe;
+  --on-surface: #0b1c30;
+  --on-surface-variant: #444651;
+  --outline: #757682;
+  --outline-variant: #c5c5d3;
+  --inverse-surface: #213145;
+  --inverse-on-surface: #eaf1ff;
+
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --warning: #8a5a00;
+  --warning-container: #ffe8b3;
+  --success: #006b5f;
+  --success-container: #c8f5ee;
+
+  /* Espaçamentos */
+  --s-xs: 4px; --s-sm: 8px; --s-md: 12px; --s-lg: 16px; --s-xl: 24px; --s-2xl: 32px;
+  --radius: 4px; --radius-lg: 8px; --radius-xl: 12px;
+  --shadow-sm: 0 1px 3px rgba(11, 28, 48, .08);
+  --shadow-md: 0 4px 14px rgba(11, 28, 48, .10);
+  --shadow-xl: 0 18px 48px rgba(11, 28, 48, .22);
+
+  --sidebar-w: 256px;
+  --header-h: 64px;
+
+  --font: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Mono", "Consolas", "SFMono-Regular", Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--on-surface);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, p { margin: 0; }
+h1 { font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -.015em; }
+h2 { font-size: 18px; line-height: 24px; font-weight: 600; letter-spacing: -.01em; }
+h3 { font-size: 15px; line-height: 20px; font-weight: 600; }
+a { color: var(--secondary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; }
+.muted { color: var(--on-surface-variant); }
+.small { font-size: 12px; line-height: 16px; }
+.label-sm { font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.nowrap { white-space: nowrap; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.icon { width: 18px; height: 18px; flex: none; display: inline-block; vertical-align: middle; }
+.icon-sm { width: 14px; height: 14px; }
+.icon-lg { width: 22px; height: 22px; }
+
+:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; }
