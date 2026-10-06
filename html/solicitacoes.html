@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitações de Troca · Gestão de Máquinas</title>
+  <link rel="stylesheet" href="../style/base.css">
+  <link rel="stylesheet" href="../style/layout.css">
+  <link rel="stylesheet" href="../style/components.css">
+</head>
+<body data-page="solicitacoes">
+
+  <main class="main">
+    <div class="page">
+      <div class="page-head">
+        <div>
+          <h1>Solicitações de Troca</h1>
+          <p>Registre, acompanhe o status e grave na planilha "Solicitação de Troca de Maquinas.xlsx".</p>
+        </div>
+        <div class="acoes">
+          <button class="btn btn-primary" id="btn-nova" type="button">+ Nova solicitação</button>
+        </div>
+      </div>
+
+      <!-- Painel da planilha -->
+      <div class="card base-card">
+        <div class="topo" style="justify-content:space-between;flex-wrap:wrap">
+          <div>
+            <h3>Planilha de solicitações</h3>
+            <span class="small muted"><span id="pl-nome">—</span> · última leitura/gravação: <span class="mono" id="pl-data">—</span></span>
+          </div>
+          <div id="pl-modo"></div>
+        </div>
+        <div class="alert info">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01"/></svg>
+          <div class="alert-body"><span><b id="pl-pend">0</b> solicitação(ões) alterada(s) no sistema ainda não gravada(s). Ao salvar, o sistema lê a planilha atual, mantém as linhas existentes, atualiza as alteradas e acrescenta as novas no final — mesma aba <b>Planilha2</b>, mesmas colunas e ordem.</span></div>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-gravar" type="button">Salvar na planilha</button>
+          <label class="btn">Importar planilha existente<input type="file" accept=".xlsx" id="in-planilha-sol" hidden></label>
+          <button class="btn" id="btn-vincular-sol" type="button" hidden>Vincular arquivo (gravar direto)</button>
+          <button class="btn btn-ghost" id="btn-desvincular-sol" type="button" hidden>Desvincular</button>
+        </div>
+      </div>
+
+      <div class="card filtros">
+        <div class="input-icon busca">
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg>
+          <input class="input" id="s-busca" type="search" placeholder="Buscar por Nº, série, protocolo, cidade, responsável...">
+        </div>
+        <select class="select" id="s-status" aria-label="Status"></select>
+        <label class="small nowrap" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="s-pend"> Só pendentes de gravação</label>
+        <span class="chip" id="s-contador">0</span>
+        <button class="btn btn-tertiary" id="btn-exportar-sol" type="button">Exportar filtradas</button>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table class="table" id="tabela-sol">
+            <thead><tr><th>Nº</th><th>Nº de Série</th><th>Status</th><th>Problema Reportado</th><th>Cidade / UF</th><th>Responsável / Contato</th><th>Protocolo</th><th>Planilha</th><th class="sticky-r">Ações</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts clássicos, nesta ordem (sem type="module" por causa do file://) -->
+  <script src="../js/lib/xlsx.full.min.js"></script>
+  <script src="../js/model/Util.js"></script>
+  <script src="../js/model/db.js"></script>
+  <script src="../js/model/ExcelService.js"></script>
+  <script src="../js/model/UnidadeModel.js"></script>
+  <script src="../js/model/MaquinaModel.js"></script>
+  <script src="../js/model/SolicitacaoModel.js"></script>
+  <script src="../js/model/DadosModel.js"></script>
+  <script src="../js/view/UI.js"></script>
+  <script src="../js/view/LayoutView.js"></script>
+  <script src="../js/view/EstabelecimentoView.js"></script>
+  <script src="../js/view/SolicitacaoView.js"></script>
+  <script src="../js/view/ImportacaoView.js"></script>
+  <script src="../js/controller/EstabelecimentoController.js"></script>
+  <script src="../js/controller/SolicitacaoController.js"></script>
+  <script src="../js/controller/ImportacaoController.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
